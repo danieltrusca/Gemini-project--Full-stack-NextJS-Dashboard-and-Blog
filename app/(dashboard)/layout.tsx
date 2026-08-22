@@ -1,4 +1,6 @@
-// app/(dashboard)/layout.tsx
+import { ThemeProvider } from "@/components/theme-provider";
+import { Sidebar } from "@/components/dashboard/sidebar";
+
 export default function DashboardLayout({
   children,
 }: {
@@ -7,10 +9,15 @@ export default function DashboardLayout({
   return (
     <div
       data-theme="dashboard"
-      className="min-h-screen bg-slate-950 text-slate-50"
+      className="min-h-screen bg-(--background) text-(--foreground) flex"
     >
-      {/* Aici vor sta Sidebar-ul și Header-ul ulterior */}
-      <main className="p-6">{children}</main>
+      <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+        <Sidebar />
+        {/* Conținutul principal este împins la dreapta automat pe ecran mare */}
+        <main className="flex-1 md:ml-60 transition-all duration-300">
+          {children}
+        </main>
+      </ThemeProvider>
     </div>
   );
 }
