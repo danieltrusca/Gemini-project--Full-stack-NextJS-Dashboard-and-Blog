@@ -1,21 +1,35 @@
 @import "tailwindcss";
 
-/* TEMA PENTRU DASHBOARD */
-[data-theme="dashboard"] {
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
-  --sidebar: 222.2 47.4% 11.2%;
-  --sidebar-foreground: 210 40% 98%;
-  --primary: 217.2 91.2% 59.8%;
-  --border: 217.2 32.6% 17.5%;
+@layer base {
+  /* Variabile implicite (DARK MODE) */
+  :root,
+  [data-theme="dashboard"] {
+    --background: #090d16;
+    --foreground: #f8fafc;
+    --sidebar: #0f172a;
+    --sidebar-foreground: #f8fafc;
+    --card: #0f172a;
+    --card-foreground: #f8fafc;
+    --border: #1e293b;
+    --primary: #3b82f6;
+  }
+
+  /* Variabile suprapuse când schimbi pe LIGHT MODE */
+  .light,
+  [data-theme="dashboard"].light,
+  .light [data-theme="dashboard"] {
+    --background: #f8fafc;
+    --foreground: #0f172a;
+    --sidebar: #ffffff;
+    --sidebar-foreground: #0f172a;
+    --card: #ffffff;
+    --card-foreground: #0f172a;
+    --border: #e2e8f0;
+    --primary: #2563eb;
+  }
 }
 
-/* TEMA PENTRU BLOG (o vom personaliza ulterior) */
-[data-theme="blog"] {
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
-  --primary: 142.1 76.2% 36.3%;
-  --border: 214.3 31.8% 91.4%;
+/* Forțăm fundalurile să fie 100% opace */
+aside, header {
+  opacity: 1 !important;
 }

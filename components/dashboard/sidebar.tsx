@@ -52,15 +52,16 @@ export function Sidebar() {
       {/* Sidebar Container */}
       <aside
         className={`
-          fixed top-0 left-0 z-50 h-screen transition-all duration-300 ease-in-out
-          bg-[var(--sidebar)] text-[var(--sidebar-foreground)] border-r border-[var(--border)]
-          flex flex-col justify-between
-          ${isMobileOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
-          ${isCollapsed ? "md:w-16" : "md:w-60"} w-64
-        `}
+    fixed top-0 left-0 z-50 h-screen transition-all duration-300 ease-in-out
+    bg-(--sidebar) text-(--sidebar-foreground) border-r border-(--border)
+    shadow-2xl md:shadow-none
+    flex flex-col justify-between
+    ${isMobileOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
+    ${isCollapsed ? "md:w-16" : "md:w-60"} w-64
+  `}
       >
         <div>
-          <div className="h-16 flex items-center justify-between px-4 border-b border-[var(--border)]">
+          <div className="h-16 flex items-center justify-between px-4 border-b border-(--border)">
             <span
               className={`font-bold text-lg tracking-wide ${isCollapsed ? "hidden" : "block"}`}
             >
@@ -104,7 +105,7 @@ export function Sidebar() {
           </nav>
         </div>
 
-        <div className="p-3 border-t border-[var(--border)]">
+        <div className="p-3 border-t border-(--border)">
           <div className="flex items-center gap-3 px-2 py-2">
             <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center font-bold text-xs shrink-0 text-white">
               U
